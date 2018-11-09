@@ -14,6 +14,10 @@ extern void keccakhash(void *state, const void *input)
     sph_keccak256 (&ctx_keccak,input, 80);
     sph_keccak256_close(&ctx_keccak, hash);
 
+    sph_keccak256_init(&ctx_keccak);
+    sph_keccak256 (&ctx_keccak,input, 32);
+    sph_keccak256_close(&ctx_keccak, hash);
+
 	memcpy(state, hash, 32);
 }
 
